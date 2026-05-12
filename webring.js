@@ -1,7 +1,7 @@
 "use strict";
 
 const members_list_url = "https://raw.githubusercontent.com/Nystrata/breenternet/refs/heads/main/members.json";
-const host_name = window.location.hostname;
+const host_name = window.location.toString();
 
 function set_hrefs(response)
 {
@@ -15,8 +15,8 @@ function set_hrefs(response)
             let left_idx = i - 1 >= 0 ? i - 1 : response.length - 1;
             let right_idx = i + 1 < response.length ? i + 1 : 0;
 
-            left.href = "https://" + response[left_idx]["url"];
-            right.href = "https://" + response[right_idx]["url"];
+            left.href = response[left_idx]["url"];
+            right.href = response[right_idx]["url"];
         }
     }
 }
